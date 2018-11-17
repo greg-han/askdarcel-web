@@ -34,8 +34,7 @@ class ResourceEntry extends Component {
   }
 
   render() {
-    const { hit } = this.props;
-    console.log(hit)
+    const { hit, index} = this.props;
     // const { isOpen, openUntil, is24hour } = this.state;
     const description = hit.long_description || 'No description, yet...';
     // const schedule = hit.schedule ? { schedule_days: hit.schedule } : null;
@@ -55,7 +54,7 @@ class ResourceEntry extends Component {
       <li className="results-table-entry resource-entry">
         <header>
           <div className="entry-details">
-            <h4 className="entry-headline"><Link to={{ pathname: '/resource', query: { id: hit.resource_id } }}>{hit.name}</Link></h4>
+            <h4 className="entry-headline"><Link to={{ pathname: '/resource', query: { id: hit.resource_id } }}>{`${index + 1}.) ${hit.name}`}</Link></h4>
             <div className="entry-subhead">
               <p>
                 { hit.address && hit.address.address_1 ? hit.address.address_1 : 'No address found' }
