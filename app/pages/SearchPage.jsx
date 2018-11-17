@@ -72,6 +72,7 @@ class SearchPage extends Component {
           </div>
           <div className="refinement-list">
             <RefinementList attribute="categories" />
+            <RefinementList attribute="open_times" />
           </div>
           <div>
             <SearchResultsContainer />

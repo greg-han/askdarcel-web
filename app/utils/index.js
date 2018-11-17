@@ -219,33 +219,42 @@ export function getTimes(scheduleDays) {
 
 
 export function getCurrentDayTime() {
-  let day = moment().day();
-  let dayText = "";
+  const mmt = moment();
+  const day = mmt.day();
+  const mmtMidnight = mmt.clone().startOf('day');
+  const diffMinutes = mmt.diff(mmtMidnight, 'minutes');
+  // Round down to the closest 30 min block of time
+  const timeRoundedDown = Math.floor(diffMinutes / 30) * 30;
+  const finalTime = mmt.startOf('day').add(timeRoundedDown, 'minutes').format('HH:mm');
+
+  let dayText = '';
 
   switch (day) {
-    case 0:
-      dayText = 'Su';
-      break;
-    case 1:
-      dayText = 'M';
-      break;
-    case 2:
-      dayText = 'Tu';
-      break;
-    case 3:
-      dayText = 'W';
-      break;
-    case 4:
-      dayText = 'Th';
-      break;
-    case 5:
-      dayText = 'F';
-      break;
-    case 6:
-      dayText = 'Sa';
-      break;
-    default:
-      dayText ='Su';
+  case 0:
+    dayText = 'Su';
+    break;
+  case 1:
+    dayText = 'M';
+    break;
+  case 2:
+    dayText = 'Tu';
+    break;
+  case 3:
+    dayText = 'W';
+    break;
+  case 4:
+    dayText = 'Th';
+    break;
+  case 5:
+    dayText = 'F';
+    break;
+  case 6:
+    dayText = 'Sa';
+    break;
+  default:
+    dayText = 'Su';
   }
 
+  const dayTime = `${dayText}-${finalTime}`;
+  return dayTime;
 }
