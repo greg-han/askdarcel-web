@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 import { getTimes } from '../../utils/index'; // timeToString
 import { images } from '../../assets';
+import RelativeOpeningTime from '../listing/RelativeOpeningTime';
 // import RelativeOpeningTime from '../listing/RelativeOpeningTime';
 
 // TODO: create a shared component for Resource and Service entries
@@ -58,7 +59,7 @@ class ResourceEntry extends Component {
               <p>
                 { hit.address && hit.address.address_1 ? hit.address.address_1 : 'No address found' }
                 {/* { schedule ? ' • ' : null } */}
-                {/* { schedule ? <RelativeOpeningTime schedule={schedule} /> : null } */}
+                { hit.schedule ? <span className="float-right"><RelativeOpeningTime schedule={{ schedule_days: hit.schedule }} /></span> : null }
               </p>
             </div>
           </div>

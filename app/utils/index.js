@@ -177,7 +177,6 @@ export function getWalkTime(currLocation, dest, cb) {
   });
 }
 
-
 export function getTimes(scheduleDays) {
   const currentDate = new Date();
   const yesterday = new Date(currentDate);
@@ -216,4 +215,37 @@ export function getTimes(scheduleDays) {
     return { openUntil, isOpen: true };
   }
   return { openUntil, isOpen: false };
+}
+
+
+export function getCurrentDayTime() {
+  let day = moment().day();
+  let dayText = "";
+
+  switch (day) {
+    case 0:
+      dayText = 'Su';
+      break;
+    case 1:
+      dayText = 'M';
+      break;
+    case 2:
+      dayText = 'Tu';
+      break;
+    case 3:
+      dayText = 'W';
+      break;
+    case 4:
+      dayText = 'Th';
+      break;
+    case 5:
+      dayText = 'F';
+      break;
+    case 6:
+      dayText = 'Sa';
+      break;
+    default:
+      dayText ='Su';
+  }
+
 }
