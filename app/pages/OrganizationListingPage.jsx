@@ -12,7 +12,6 @@ import ResourceMap from 'components/listing/ResourceMap';
 import HAPcertified from '../assets/img/ic-hap.png';
 import MOHCDFunded from '../assets/img/ic-mohcd-funded-services.png';
 import * as dataService from '../utils/DataService';
-import RelativeOpeningTime from '../components/listing/RelativeOpeningTime';
 
 
 function scrollToElement(selector) {
