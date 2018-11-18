@@ -33,7 +33,7 @@ class ResourceEntry extends Component {
   }
 
   render() {
-    const { hit, index} = this.props;
+    const { hit, index } = this.props;
     // const { isOpen, openUntil, is24hour } = this.state;
     const description = hit.long_description || 'No description, yet...';
     // const schedule = hit.schedule ? { schedule_days: hit.schedule } : null;
